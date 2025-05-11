@@ -1,0 +1,510 @@
+/* RoseComponent.module.css */
+
+/* Variables */
+.container {
+  --bg: #0a1622;
+  --case: #122139;
+  --casebase: #a52a2a;
+  --pink1: #d52d58;
+  --pink2: #9e183a;
+  --pink3: #b81b43;
+  --pink4: #c9204b;
+  --green1: #338f37;
+  --green2: #015301;
+  --text-color: #ffebee;
+}
+
+/* Estructura principal */
+.container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 400px;
+}
+
+/* Rosa y vaso */
+.glass {
+  height: 350px;
+  width: 200px;
+  background: var(--case);
+  border-radius: 300px 300px 0 0;
+  position: relative;
+}
+
+.glass::before {
+  content: "";
+  height: 10px;
+  width: 10px;
+  border: 10px solid var(--case);
+  border-radius: 100%;
+  position: absolute;
+  left: 87px;
+  top: -25px;
+}
+
+.glass::after {
+  content: "";
+  position: absolute;
+  height: 15px;
+  width: 250px;
+  background: var(--casebase);
+  top: 100%;
+  left: -13%;
+}
+
+.shine {
+  width: 12px;
+  height: 140px;
+  background: white;
+  opacity: 0.2;
+  position: absolute;
+  left: 85%;
+  top: 80px;
+  border-radius: 100px;
+  z-index: 10;
+}
+
+.shine::before {
+  content: "";
+  width: 12px;
+  height: 20px;
+  position: absolute;
+  background: white;
+  top: 160px;
+  border-radius: 100px;
+}
+
+/* Pétalos */
+.petals > div {
+  position: absolute;
+  background: var(--pink1);
+  width: 45px;
+  height: 80px;
+  top: 55px;
+  transition: all 0.5s ease-out;
+}
+
+.petals > div:nth-child(1) {
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(245, 148, 184, 1);
+  left: 80px;
+  top: 60px;
+}
+
+.petals > div:nth-child(2),
+.petals > div:nth-child(4),
+.petals > div:nth-child(6) {
+  background: var(--pink3);
+  left: 60px;
+  border-radius: 0 30px 0 30px;
+  transform-origin: bottom right;
+}
+
+.petals > div:nth-child(3),
+.petals > div:nth-child(5),
+.petals > div:nth-child(7) {
+  background: var(--pink3);
+  left: 100px;
+  border-radius: 30px 0 30px 0;
+  transform-origin: bottom left;
+}
+
+/* Pétalos específicos (conversión de @for a CSS puro) */
+.petals > div:nth-child(2) {
+  z-index: 5;
+  background: #9c4b60;
+  top: 75px;
+  height: 70px;
+  box-shadow: 0 0 50px rgba(245, 148, 184, 0.5);
+  animation: bloom2 3s ease-in-out, glowing 2.5s ease-in-out infinite;
+  animation-fill-mode: forwards;
+}
+
+/* ... (similar para los otros pétalos 3-7) ... */
+
+/* Hojas y tallo */
+.leaves > div:nth-child(1) {
+  position: absolute;
+  width: 6px;
+  height: 210px;
+  background: var(--green2);
+  top: 95px;
+  left: 100px;
+  border-radius: 0 0 100px 100px;
+}
+
+.leaves > div:nth-child(2) {
+  position: absolute;
+  width: 30px;
+  height: 50px;
+  border-radius: 5px 40px 20px 40px;
+  background: var(--green2);
+  transform: rotate(-30deg);
+  top: 180px;
+  left: 80px;
+  box-shadow: inset 5px 5px #056505;
+}
+
+/* Mensaje y botón */
+.roseMessage {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  color: var(--text-color);
+  font-family: 'Arial', sans-serif;
+  text-shadow: 0 0 5px rgba(213, 45, 88, 0.7);
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out 3s forwards;
+  bottom: -40px;
+  font-size: 14px;
+}
+
+.letterButton {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  border-radius: 20px;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out 4s forwards;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(2px);
+  bottom: -110px;
+  padding: 8px 20px;
+  font-size: 14px;
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.modal {
+  background: linear-gradient(135deg, #fff9f9 0%, #ffecec 100%);
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 5px 30px rgba(213, 45, 88, 0.3);
+  position: relative;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.letterTextarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ffd6e0;
+  border-radius: 10px;
+  font-size: 16px;
+  resize: none;
+  margin-bottom: 20px;
+  min-height: 200px;
+}
+
+/* Animaciones */
+@keyframes bloom2 {
+  50% { transform: rotate(-90deg); top: 200px; left: 100px; }
+  100% { transform: rotate(-60deg); top: 252px; left: 50px; background: #8a1438; box-shadow: 0 0 0 rgba(245, 148, 184, 0); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container { transform: translate(-50%, -50%) scale(0.9); }
+  .roseMessage { font-size: 16px; bottom: -50px; }
+  .letterButton { font-size: 16px; padding: 10px 25px; bottom: -90px; }
+}
+
+@media (max-width: 480px) {
+  .container { transform: translate(-50%, -50%) scale(0.7); }
+  .roseMessage { font-size: 14px; width: 90%; left: 5%; bottom: -30px; }
+  .letterButton { font-size: 15px; padding: 10px 20px; bottom: -110px; }
+  .modal { padding: 20px; }
+  .letterTextarea { font-size: 14px; min-height: 150px; }
+}
+
+/* Variables */
+.mainContainer {
+  --bg: #0a1622;
+  --case: #122139;
+  --casebase: #a52a2a;
+  --pink1: #d52d58;
+  --pink2: #9e183a;
+  --pink3: #b81b43;
+  --pink4: #c9204b;
+  --green1: #338f37;
+  --green2: #015301;
+  --text-color: #ffebee;
+}
+
+/* Contenedor principal */
+.mainContainer {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.roseContainer {
+  position: relative;
+  width: 200px;
+  height: 400px;
+}
+
+/* Estilos para la rosa (igual que antes) */
+.glass {
+  height: 350px;
+  width: 200px;
+  background: var(--case);
+  border-radius: 300px 300px 0 0;
+  position: relative;
+}
+
+
+/* ... (Todos los estilos del modal que proporcioné anteriormente) ... */
+
+/* Responsive */
+@media (max-width: 768px) {
+  .roseContainer {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 480px) {
+  .roseContainer {
+    transform: scale(0.7);
+  }
+  
+  
+}
+
+/* ... (conserva todos los estilos anteriores) ... */
+
+
+/* Variables */
+.mainContainer {
+  --bg: #0a1622;
+  --case: #122139;
+  --casebase: #a52a2a;
+  --pink1: #d52d58;
+  --pink2: #9e183a;
+  --pink3: #b81b43;
+  --pink4: #c9204b;
+  --green1: #338f37;
+  --green2: #015301;
+  --text-color: #ffebee;
+}
+
+/* Estructura principal */
+.mainContainer {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.roseContainer {
+  position: relative;
+  width: 200px;
+  height: 400px;
+}
+
+/* [Todos los estilos de la rosa anteriores...] */
+
+/* ============ ESTILOS DEL MODAL RESPONSIVE ============ */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+  backdrop-filter: blur(8px);
+}
+
+.modal {
+  background: linear-gradient(135deg, #fff9f9 0%, #ffecec 100%);
+  border-radius: 15px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 5px 30px rgba(213, 45, 88, 0.4);
+  position: relative;
+  margin: 40px 0;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.modalTitle {
+  color: var(--pink1);
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 20px 0 10px;
+  padding: 0 20px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--pink1);
+  transition: transform 0.3s;
+}
+
+.closeButton:hover {
+  transform: scale(1.2);
+}
+
+.letterContent {
+  font-family: 'Georgia', serif;
+  line-height: 1.9;
+  color: #333;
+  white-space: pre-line;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  margin: 0 20px 20px;
+  border-left: 4px solid var(--pink1);
+  overflow-y: auto;
+  flex-grow: 1;
+  max-height: calc(85vh - 180px);
+}
+
+.letterContent p {
+  margin-bottom: 1.3em;
+  text-indent: 1.2em;
+  font-size: 1.15rem;
+}
+
+.signature {
+  text-align: right;
+  font-style: italic;
+  color: var(--pink1);
+  font-weight: bold;
+  margin: 10px 30px 20px;
+  font-size: 1.2rem;
+}
+
+/* Scrollbar */
+.letterContent::-webkit-scrollbar {
+  width: 8px;
+}
+
+.letterContent::-webkit-scrollbar-thumb {
+  background-color: var(--pink3);
+  border-radius: 4px;
+}
+
+.letterContent::-webkit-scrollbar-track {
+  background: rgba(213, 45, 88, 0.1);
+}
+
+/* ============ RESPONSIVE ADJUSTMENTS ============ */
+@media (max-width: 768px) {
+  .modal {
+    max-width: 90%;
+    margin: 30px 0;
+  }
+  
+  .modalTitle {
+    font-size: 1.5rem;
+  }
+  
+  .letterContent {
+    padding: 16px;
+    margin: 0 15px 15px;
+    max-height: calc(85vh - 160px);
+  }
+  
+  .letterContent p {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalOverlay {
+    padding: 10px;
+  }
+  
+  .modal {
+    max-height: 90vh;
+    margin: 20px 0;
+    border-radius: 12px;
+  }
+  
+  .modalTitle {
+    font-size: 1.3rem;
+    margin: 15px 0 5px;
+  }
+  
+  .letterContent {
+    max-height: calc(90vh - 140px);
+    padding: 14px;
+    margin: 0 12px 12px;
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+  
+  .letterContent p {
+    font-size: 1rem;
+    text-indent: 1em;
+  }
+  
+  .closeButton {
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
