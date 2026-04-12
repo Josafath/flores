@@ -5,15 +5,7 @@ import styles from './page.module.css';
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const loveLetter = `
-    Querida Dreita:
-  Hoy quiero regalarte algo que vaya más allá de un simple "te quiero", es algo que refleje un poco lo que siento por ti. No siempre tengo dinero para comprarte flores, pero como sabes, soy un programador y siendo un "nerd" de corazón, se me ocurrió que podía sorprenderte con algo único: una página con una rosa hecha por mí.
-    
-  Sé que aún estoy en el proceso de mejorar y crecer, pero quería hacerte sentir especial, como te mereces. A través de esto, intento demostrarte que aunque soy un trabajo en progreso, estoy buscando formas de hacerte sonreír y mostrarte mi cariño. Cada vez que hablamos, siento que doy un paso hacia ser una mejor versión de mí mismo, porque quiero ser alguien digno de ti.
-    
-  Creo en ti profundamente. No solo porque me gustas, sino porque veo en ti a una persona increíblemente talentosa, fuerte y con un brillo especial que no cualquiera tiene. Estás destinada a lograr cosas grandes, a dejar huella, a inspirar a otros con lo que haces y cómo lo haces. No tengo duda de que vas a llegar lejos, porque tienes todo para hacerlo: pasión, disciplina, sensibilidad y una luz única. A mí me hace feliz saber que puedo acompañarte, aunque sea un poquito, en ese camino tan hermoso que estás construyendo. Gracias por ser tú, por enseñarme tanto sin darte cuenta, y por hacer que este nerd quiera usar lo que sabe para hacerte sentir querida.
-    
-    Te quiero muchísimo y siempre estaré aquí para ti. 
-  `;
+   Hoy ya no existe lo que estaba y sentía por esta persona. Te deseo lo mejor pero necesito avanzar
 
   return (
     <main className={styles.mainContainer}>
