@@ -9,6 +9,7 @@ const loveLetter = [
   'Te he regalado muchas flores, y me encanta ver tu cara cada vez que llego con un ramo. Pero esta vez quise darte una diferente: una que hice yo mismo, con lo que mejor sé hacer, código. No huele a nada y no cabe en un florero, pero tiene algo que las otras no: nunca se va a marchitar.',
   'Desde que supimos que vamos a ser papás, todo se siente distinto. Me emociona de una forma que no sé explicar bien. Cada día te veo y pienso en lo fuerte que eres, en todo lo que estás cargando (literalmente) y en lo bonito que va a ser conocer a nuestro bebé.',
   'Gracias por elegirme para esta aventura. Te prometo estar ahí en los antojos raros, en los miedos y en las risas. Quiero que nuestro bebé crezca viendo lo mucho que quiero a su mamá.',
+  'Sé que mis actitudes no siempre son las mejores. A veces me equivoco, me desespero o no digo las cosas de la mejor manera. Pero aun en esos días te amo, y quiero seguir aprendiendo a ser mejor para ti. Quiero que pasemos juntos por todo: lo bonito, lo difícil y todo lo que venga.',
   'La rosa eres tú, y el botoncito que está a su lado es nuestro bebé, que todavía está por florecer. Es mi manera de decirte que te quiero, que te admiro y que estoy feliz de formar una familia contigo.',
   'Te amo.',
 ];
