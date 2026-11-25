@@ -1,25 +1,27 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Dancing_Script, Lora } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Letra manuscrita para títulos y firma
+const script = Dancing_Script({
+  variable: "--font-script",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Letra con serifas para el cuerpo de la carta
+const serif = Lora({
+  variable: "--font-serif",
   subsets: ["latin"],
 });
 
 export const metadata = {
   title: "Regalito",
-  description: "Una pequeña sorpresa para la princess",
+  description: "Una pequeña sorpresa para Fátima",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="es">
+      <body className={`${script.variable} ${serif.variable}`}>
         {children}
       </body>
     </html>
