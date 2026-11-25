@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Una rosa para ti 🌹
 
-## Getting Started
+Una página hecha a mano como regalo: una rosa animada dentro de un vaso de cristal, con un botón cerrado a su lado que representa a nuestro bebé, y una carta que se abre al final.
 
-First, run the development server:
+## Qué tiene
+
+- Rosa dibujada en SVG: el tallo se dibuja, las hojas crecen y la flor abre por capas.
+- Pétalos que caen, destellos y un cielo estrellado.
+- Carta con estilo de papel, sello de cera y letra manuscrita.
+- Funciona en celular y respeta la opción de "reducir movimiento" del sistema.
+
+Hecho con [Next.js](https://nextjs.org) y CSS puro, sin librerías extra.
+
+## Correrlo en tu computadora
+
+Necesitas Node.js 20 o más nuevo.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Dónde cambiar las cosas
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Qué | Archivo |
+| --- | --- |
+| Texto de la carta, mensaje y firma | `src/app/page.js` |
+| Dibujo de la rosa y el botón | `src/app/Rose.js` |
+| Animaciones de la rosa | `src/app/Rose.module.css` |
+| Estilos de la página y la carta | `src/app/page.module.css` |
+| Título de la pestaña y vista previa del link | `src/app/layout.js` |
 
-## Learn More
+## Deploy en Vercel
 
-To learn more about Next.js, take a look at the following resources:
+1. Sube el repo a GitHub.
+2. En [vercel.com/new](https://vercel.com/new) importa el repo. Vercel detecta Next.js solo; no hay que cambiar nada.
+3. El nombre del proyecto será el link (`nombre.vercel.app`).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+La página no se indexa en buscadores: solo la ve quien tenga el link.
