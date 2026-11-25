@@ -1,0 +1,38 @@
+.wrap {
+  position: relative;
+}
+
+.scene {
+  width: min(92vw, 400px);
+  aspect-ratio: 4 / 5;
+  cursor: grab;
+  touch-action: none;
+}
+
+.scene:active {
+  cursor: grabbing;
+}
+
+.scene canvas {
+  display: block;
+}
+
+.hint {
+  position: absolute;
+  bottom: 4px;
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-serif), serif;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: rgba(255, 235, 238, 0.45);
+  opacity: 0;
+  animation: hint 6s ease-in-out 5s forwards;
+  pointer-events: none;
+}
+
+/* Aparece un momento y se desvanece */
+@keyframes hint {
+  15%, 70% { opacity: 1; }
+  100%     { opacity: 0; }
+}

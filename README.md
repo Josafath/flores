@@ -4,12 +4,13 @@ Una página hecha a mano como regalo: una rosa animada dentro de un vaso de cris
 
 ## Qué tiene
 
-- Rosa dibujada en SVG: el tallo se dibuja, las hojas crecen y la flor abre por capas.
+- Rosa en 3D dentro de un vaso de cristal: el tallo crece, las hojas aparecen y la flor abre por capas. Gira sola y se puede arrastrar para verla desde otro ángulo.
 - Pétalos que caen, destellos y un cielo estrellado.
+- Si el dispositivo no soporta WebGL, se muestra una versión en SVG.
 - Carta con estilo de papel, sello de cera y letra manuscrita.
 - Funciona en celular y respeta la opción de "reducir movimiento" del sistema.
 
-Hecho con [Next.js](https://nextjs.org) y CSS puro, sin librerías extra.
+Hecho con [Next.js](https://nextjs.org) y [three.js](https://threejs.org). Los pétalos, hojas y el vaso se generan por código; no hay modelos 3D descargados.
 
 ## Correrlo en tu computadora
 
@@ -27,8 +28,9 @@ Abre [http://localhost:3000](http://localhost:3000).
 | Qué | Archivo |
 | --- | --- |
 | Texto de la carta, mensaje y firma | `src/app/page.js` |
-| Dibujo de la rosa y el botón | `src/app/Rose.js` |
-| Animaciones de la rosa | `src/app/Rose.module.css` |
+| Rosa 3D: forma de pétalos, capas, colores, luces | `src/app/roseScene.js` |
+| Cámara, giro y tamaño de la escena 3D | `src/app/Rose3D.js` |
+| Rosa SVG de respaldo | `src/app/Rose.js` y `Rose.module.css` |
 | Estilos de la página y la carta | `src/app/page.module.css` |
 | Título de la pestaña y vista previa del link | `src/app/layout.js` |
 

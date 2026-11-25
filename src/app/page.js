@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Rose from './Rose';
+import Rose3D from './Rose3D';
 import styles from './page.module.css';
 
 // Cada elemento es un párrafo de la carta; el primero es el saludo
@@ -47,23 +48,30 @@ export default function Home() {
         ))}
       </div>
 
-      <div className={styles.roseContainer}>
-        {/* Vaso */}
-        <div className={styles.glass}>
-          <div className={styles.shine}></div>
-        </div>
+      <div className={styles.stage}>
+        {/* Rosa en 3D; si no hay WebGL se usa la versión en SVG */}
+        <Rose3D
+          fallback={
+            <div className={styles.roseContainer}>
+              {/* Vaso */}
+              <div className={styles.glass}>
+                <div className={styles.shine}></div>
+              </div>
 
-        <Rose />
+              <Rose />
 
-        {/* Pétalos que caen */}
-        <div className={styles.deadPetals} aria-hidden="true">
-          {[...Array(4)].map((_, i) => <div key={i}></div>)}
-        </div>
+              {/* Pétalos que caen */}
+              <div className={styles.deadPetals} aria-hidden="true">
+                {[...Array(4)].map((_, i) => <div key={i}></div>)}
+              </div>
 
-        {/* Destellos que suben dentro del vaso */}
-        <div className={styles.sparkles} aria-hidden="true">
-          {sparkles.map((style, i) => <span key={i} style={style}></span>)}
-        </div>
+              {/* Destellos que suben dentro del vaso */}
+              <div className={styles.sparkles} aria-hidden="true">
+                {sparkles.map((style, i) => <span key={i} style={style}></span>)}
+              </div>
+            </div>
+          }
+        />
 
         <div className={styles.roseMessage}>Esta nunca se va a marchitar</div>
         <button

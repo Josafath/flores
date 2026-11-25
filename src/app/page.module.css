@@ -21,11 +21,22 @@
   overflow: hidden;
 }
 
+/* Columna con la rosa, el mensaje y el botón */
+.stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 0 40px;
+}
+
+/* Versión SVG de respaldo */
 .roseContainer {
   position: relative;
   width: 200px;
   height: 400px;
-  margin-bottom: 120px;
+  margin-bottom: 10px;
 }
 
 /* ============ ESTRELLAS ============ */
@@ -134,10 +145,6 @@
 
 /* ============ MENSAJE Y BOTÓN ============ */
 .roseMessage {
-  position: absolute;
-  width: 280px;
-  left: 50%;
-  transform: translateX(-50%);
   text-align: center;
   color: var(--text-color);
   font-family: var(--font-script), cursive;
@@ -145,13 +152,9 @@
   text-shadow: 0 0 10px rgba(213, 45, 88, 0.9);
   opacity: 0;
   animation: fadeIn 2s ease-in-out 3.5s forwards;
-  bottom: -55px;
 }
 
 .letterButton {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   background: rgba(213, 45, 88, 0.12);
   border: 1px solid rgba(255, 235, 238, 0.7);
   color: var(--text-color);
@@ -161,7 +164,6 @@
   animation: fadeIn 2s ease-in-out 4.5s forwards;
   transition: background 0.3s ease, box-shadow 0.3s ease;
   backdrop-filter: blur(2px);
-  bottom: -110px;
   padding: 10px 24px;
   font-family: var(--font-serif), serif;
   font-size: 15px;
